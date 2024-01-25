@@ -1,4 +1,5 @@
 <div class="container">
+  <div class="fs-2">Criar Lista de reprodução</div>
   <form>
     <div class="mb-3">
       <label for="name" class="form-label">Nome da lista</label>
@@ -11,22 +12,27 @@
     <button (click)="cadastarPlaylist()" class="btn btn-primary">Criar lista</button>
   </form>
 
-  <table class="table mt-5">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Descrição</th>
-        <th scope="col">Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let playlist of playlists | async">
-        <th scope="row"> {{playlist.id}} </th>
-        <td> {{playlist.nome}} </td>
-        <td> {{playlist.descricao}} </td>
-        <td> <button (click)="remover(playlist.nome)">Excluir</button> </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="overflow-x-auto">
+    <table class="table mt-5">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let playlist of playlists | async">
+          <th scope="row"> {{playlist.id}} </th>
+          <td> {{playlist.nome}} </td>
+          <td> {{playlist.descricao}} </td>
+          <td>
+            <button (click)="remover(playlist.nome)" class="me-2 text-danger bg-transparent border-0">Excluir</button>
+            <a [routerLink]="['/playlist', playlist.nome]">Músicas</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

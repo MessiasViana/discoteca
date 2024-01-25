@@ -8,6 +8,7 @@ import { MusicsComponent } from './components/musics/musics.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ItemPlaylistComponent } from './components/item-playlist/item-playlist.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     MusicsComponent,
     HomeComponent,
+    ItemPlaylistComponent,
   ],
   imports: [
     BrowserModule,

@@ -19,6 +19,10 @@ export class PlaylistService {
     return this._httpClient.get<Playlist[]>(`${this.url.api}/playlist/lists`);
   }
 
+  obterPlaylistUnica(nome: string) {
+    return this._httpClient.get<Playlist>(`${this.url.api}/playlist/lists/${nome}`);
+  }
+
   cadastrarPlaylist(playlist: Playlist) {
     return this._httpClient.post<Playlist>(`${this.url.api}/playlist/lists`, playlist);
   }

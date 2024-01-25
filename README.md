@@ -1,27 +1,66 @@
-# Discoteca
+# Discoteta
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.8.
+O projeto foi desenvolvido com o objetivo de permitir aos usuários criar listas de reprodução e associar músicas a essas listas. Algumas das principais funcionalidades incluem:
 
-## Development server
+1. **Criação de Listas de Reprodução:**
+  - Os usuários podem criar novas listas de reprodução, fornecendo um nome e uma descrição.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+2. **Cadastro de Músicas:**
+  - Adição de novas músicas à base de dados, especificando título, artista, ano, gênero, álbum e associando a uma lista de reprodução existente.
 
-## Code scaffolding
+3. **Visualização de Listas de Reprodução:**
+  - Visualização de todas as listas de reprodução cadastradas, exibindo seus detalhes como nome e descrição.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+4. **Gerenciamento de Músicas:**
+- Os usuários podem visualizar e gerenciar músicas associadas a cada lista de reprodução.
 
-## Build
+## Instalação
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clone o repositório: `git clone https://github.com/MessiasViana/discoteca`
+2. Entre no diretório: `cd seu-projeto`
+3. Instale as dependências: `npm install`
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Execução
 
-## Running end-to-end tests
+Para iniciar o servidor de desenvolvimento, use o comando:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+ng serve
+```
 
-## Further help
+O aplicativo estará disponível em http://localhost:4200/.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Estrutura do Projeto
+
+- `src/`: Contém o código-fonte do projeto.
+  - `app/`: Código-fonte específico do aplicativo.
+    - `components/`: Componentes reutilizáveis.
+    - `models/`: Modelos de dados.
+    - `services/`: Serviços para interação com a API ou lógica de negócios.
+  - `environments/`: Configurações específicas de ambiente.
+
+## Componentes
+
+### Header Component
+
+Este componente é responsável por exibir o cabeçalho do aplicativo.
+
+### Home Component
+
+O componente Home exibe todas as playlists cadastradas. É a página principal do aplicativo onde os usuários podem criar novas playlists e visualizar as existentes.
+
+### ItemPlaylist Component
+
+O ItemPlaylist Component exibe detalhes de uma playlist específica, incluindo todas as músicas associadas a ela. Pode ser usado para mostrar informações detalhadas de uma playlist quando o usuário seleciona uma playlist na página Home.
+
+### Musics Component
+
+O Musics Component exibe todas as músicas cadastradas no sistema. Pode ser usado para gerenciar e visualizar todas as músicas, independentemente da playlist à qual estão associadas.
+
+
+## Tecnologias
+
+- Angular
+- TypeScript
+- Bootstrap

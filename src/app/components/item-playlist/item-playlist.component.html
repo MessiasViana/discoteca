@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="fs-2">Músicas da lista: {{nome}}</div>
+
+  <div class="overflow-x-auto">
+    <table class="table mt-5">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Artista</th>
+          <th scope="col">Album</th>
+          <th scope="col">Gênero</th>
+          <th scope="col">Ano</th>
+          <th scope="col">ID da playlist</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let musica of (item | async)?.musicas">
+          <th scope="row"> {{musica.id}} </th>
+          <td> {{musica.titulo}} </td>
+          <td> {{musica.artista}} </td>
+          <td> {{musica.album}} </td>
+          <td> {{musica.genero}} </td>
+          <td> {{musica.ano}} </td>
+          <td> {{musica.playlist}} </td>
+          <td> <button (click)="remover(musica.titulo)" class="me-2 text-danger bg-transparent border-0">Excluir</button> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

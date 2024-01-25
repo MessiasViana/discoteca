@@ -2,6 +2,7 @@ import { PlaylistService } from './../../services/playlist.service';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Playlist } from 'src/app/models/playlist.model';
+import { SharedDataService } from './../../services/shared-data.service';
 
 @Component({
   selector: 'app-home',
@@ -14,12 +15,13 @@ export class HomeComponent {
   nome = "";
   descricao = "";
 
-  constructor(private playlistService: PlaylistService) {
+  constructor(private playlistService: PlaylistService, private sharedDataService: SharedDataService) {
     this.obterPlaylistsCadastradas();
   }
 
   obterPlaylistsCadastradas() {
     this.playlists = this.playlistService.obterPlaylist();
+    this.playlists.subscribe(playlists => this.sharedDataService.changePlaylists(playlists));
   }
 
   cadastarPlaylist() {

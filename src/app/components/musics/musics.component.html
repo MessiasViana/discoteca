@@ -1,1 +1,61 @@
-<p>musics works!</p>
+<div class="container">
+  <div class="fs-2">Cadastrar nova música</div>
+  <form>
+    <div class="mb-3">
+      <label for="titulo" class="form-label">Titulo</label>
+      <input type="text" class="form-control" id="titulo" [(ngModel)]="titulo" name="titulo">
+    </div>
+    <div class="mb-3">
+      <label for="artista" class="form-label">Artista</label>
+      <input type="text" class="form-control" id="artista" [(ngModel)]="artista" name="artista">
+    </div>
+    <div class="mb-3">
+      <label for="ano" class="form-label">Ano</label>
+      <input type="text" class="form-control" id="ano" [(ngModel)]="ano" name="ano">
+    </div>
+    <div class="mb-3">
+      <label for="genero" class="form-label">Gênero</label>
+      <input type="text" class="form-control" id="genero" [(ngModel)]="genero" name="genero">
+    </div>
+    <div class="mb-3">
+      <label for="album" class="form-label">Album</label>
+      <input type="text" class="form-control" id="album" [(ngModel)]="album" name="album">
+    </div>
+    <div class="mb-3">
+      <label for="nome_playlist" class="form-label">Nome da Playlist</label>
+      <select class="form-select" id="nome_playlist" [(ngModel)]="nome_playlist" name="nome_playlist">
+        <option *ngFor="let playlist of playlists" [value]="playlist.nome">{{ playlist.nome }}</option>
+      </select>
+    </div>
+    <button (click)="cadastarMusica()" class="btn btn-primary">Cadastrar música</button>
+  </form>
+
+  <div class="overflow-x-auto">
+    <table class="table mt-5">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Artista</th>
+          <th scope="col">Album</th>
+          <th scope="col">Gênero</th>
+          <th scope="col">Ano</th>
+          <th scope="col">ID da playlist</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let musica of musicas | async">
+          <th scope="row"> {{musica.id}} </th>
+          <td> {{musica.titulo}} </td>
+          <td> {{musica.artista}} </td>
+          <td> {{musica.album}} </td>
+          <td> {{musica.genero}} </td>
+          <td> {{musica.ano}} </td>
+          <td> {{musica.playlist.id}} </td>
+          <td> <button (click)="remover(musica.titulo)" class="me-2 text-danger bg-transparent border-0">Excluir</button> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
